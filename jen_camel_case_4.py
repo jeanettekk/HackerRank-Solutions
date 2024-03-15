@@ -1,3 +1,9 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import sys
+
+input_string = sys.stdin.read()
+
+list_input = input_string.splitlines()
 
 for index, line in enumerate(list_input):
 
@@ -16,12 +22,10 @@ for index, line in enumerate(list_input):
                 new_list += ' '
                 new_list += letter
 
-
             else:
                 new_list += letter
 
         list_input[index] = ''.join(new_list).lower().strip()
-
 
     else:
         if 'M' == line[2:3]:
@@ -36,29 +40,29 @@ for index, line in enumerate(list_input):
 
             list_input[index] = ''.join(words_list) + '()'.strip()
 
-    elif 'V' == line[2:3]:
+        elif 'V' == line[2:3]:
 
-    line = line[4:]
-    words_list = line.split()
+            line = line[4:]
+            words_list = line.split()
 
-    for index_two, word in enumerate(words_list):
+            for index_two, word in enumerate(words_list):
 
-        if index_two > 0:
-            words_list[index_two] = word.capitalize()
+                if index_two > 0:
+                    words_list[index_two] = word.capitalize()
 
-    list_input[index] = ''.join(words_list).strip()
+            list_input[index] = ''.join(words_list).strip()
 
-else:
+        else:
 
-    line = line[4:]
-    words_list = line.split()
-    new_list = []
+            line = line[4:]
+            words_list = line.split()
+            new_list = []
 
-    for word in words_list:
-        new_list += word.capitalize().strip()
+            for word in words_list:
+                new_list += word.capitalize().strip()
 
-    new_line = ''.join(new_list)
-    list_input[index] = new_line
+            new_line = ''.join(new_list)
+            list_input[index] = new_line
 
 for line in list_input:
     print(line)
