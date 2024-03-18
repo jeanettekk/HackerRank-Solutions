@@ -61,3 +61,20 @@ def flippingBits(n):
         flipped_integers.append(flipped_integer)
 
     return flipped_integer
+
+# DIAGONAL DIFFERENCE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+def diagonalDifference(arr):
+    items = len(arr)
+    left_right = 0
+    right_left = 0
+    reverse_list = list(range(items))
+    reverse_list.reverse()
+
+    for number in range(items):
+
+        left_right += arr[number][number]
+
+        right_left += arr[number][reverse_list[number]]
+
+    return abs(left_right - right_left)
