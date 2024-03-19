@@ -78,3 +78,14 @@ def diagonalDifference(arr):
         right_left += arr[number][reverse_list[number]]
 
     return abs(left_right - right_left)
+
+# COUNTING SORT 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+def countingSort(arr):
+
+    counter = list((0,) * 100)
+
+    for number in arr:
+        counter[number] += 1
+
+    return counter
