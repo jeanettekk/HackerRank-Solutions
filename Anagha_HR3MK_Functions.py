@@ -39,7 +39,6 @@ def breakingRecords(scores):
 
 
 # Convert to and fro into accepted camelCase format for class, method and variable
-# Have opened a ticket for this one
 
 def toCamelCase(input_list):
     for j in range(len(input_list)):
@@ -47,7 +46,9 @@ def toCamelCase(input_list):
 
         if s[0] == 'S':
             if s[2] == 'M':
-                s = s[:-2]
+                # essentially the same but one works one doesn't.
+                # s = s[:-2]
+                s = s.replace('()' , '')
             s = s[4:]
             for i in range(len(s)):
                 if s[i].isupper():
@@ -95,10 +96,38 @@ def fizzbuzz(n):
             print(i)
 
 
-# Mock test 1:
-# Find median of integer array storing odd number of values
+# Week 2:
 
-def findMedian(arr):
-    arr.sort()
-    return arr[len(arr) // 2]
+# grading student: rounding off by adding one or two marks to students who have scored over 38 marks.
 
+def gradingStudents(grades):
+    new_grades = []
+    for grade in grades:
+        difference = 5 - (grade % 5)
+        if difference < 3 and grade >= 38:
+            grade += difference
+        new_grades.append(grade)
+    return new_grades
+    
+
+# flipping the bits of a decimal number
+
+def flippingBits(num):
+    return (1 << 32) - 1 - num
+
+
+# finding difference of number sums representing each diagonal of given matrix
+
+def diagonalDifference(arr):
+    sq_length = len(arr[0])
+    dia_1 = [] * sq_length
+    dia_2 = [] * sq_length
+    for i in range(0, sq_length):
+        for j in range(0, sq_length):
+            if i == j:
+                dia_1.append(arr[i][j])
+            if i+j == sq_length-1:
+                dia_2.append(arr[i][j])
+    sum1 = sum(dia_1)
+    sum2 = sum(dia_2)
+    return sum2-sum1 if sum2 > sum1 else sum1-sum2
