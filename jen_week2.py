@@ -89,3 +89,24 @@ def countingSort(arr):
         counter[number] += 1
 
     return counter
+
+# COUNTING VALLEYS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+def countingValleys(steps, path):
+    sea_level = 0
+    valley_count = 0
+
+    for letter in path:
+
+        if letter == 'D':
+
+            sea_level -= 1
+
+        elif letter == 'U':
+
+            sea_level += 1
+
+            if sea_level == 0:
+                valley_count += 1
+
+    return valley_count
