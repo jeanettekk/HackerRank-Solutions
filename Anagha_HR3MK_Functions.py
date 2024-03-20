@@ -152,3 +152,20 @@ def countingValleys(path):
             num_valley += 1
             below_sea = False
     return num_valley
+
+# Week 3:
+# Chocolate distribution: No. of possible ways a segment of cubes (equalling birth month) and
+# the sum of numbers wrritten on cubes equalling birth day can be cut out of a chocolate bar
+
+def birthday(arr, d, m):
+    count = 0
+    if m < len(arr):
+        for i in range(len(arr) - m+1):
+            sum_s = 0
+            for j in range(i, i+m):
+                sum_s += arr[j]
+            if sum_s == d:
+                count += 1
+    if m == len(arr) and sum(arr) == d:
+        count += 1
+    return count
