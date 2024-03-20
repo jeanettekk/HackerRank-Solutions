@@ -131,3 +131,24 @@ def diagonalDifference(arr):
     sum1 = sum(dia_1)
     sum2 = sum(dia_2)
     return sum2-sum1 if sum2 > sum1 else sum1-sum2
+
+
+# Count valleys traversed through path represented by characters D and U (Down and Up)
+
+def countingValleys(path):
+
+    altitude = 0
+    num_valley = 0
+    below_sea = False
+
+    for step in path:
+        if step == 'U':
+            altitude += 1
+        if step == 'D':
+            altitude -= 1
+        if altitude < 0:
+            below_sea = True
+        if altitude == 0 and below_sea:
+            num_valley += 1
+            below_sea = False
+    return num_valley
