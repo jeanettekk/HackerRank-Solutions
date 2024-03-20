@@ -169,3 +169,16 @@ def birthday(arr, d, m):
     if m == len(arr) and sum(arr) == d:
         count += 1
     return count
+
+
+# Perform strings XOR (debugged)
+
+def strings_xor(s, t):
+    res = ""
+    for i in range(len(s)):
+        if s[i] == t[i]:
+            res += '0'
+        else:
+            res += '1'
+
+    return res
