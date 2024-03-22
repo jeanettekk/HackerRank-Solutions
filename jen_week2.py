@@ -110,3 +110,43 @@ def countingValleys(steps, path):
                 valley_count += 1
 
     return valley_count
+
+# PANGRAMS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+from string import ascii_lowercase
+
+def pangrams(s):
+    alpha = list(ascii_lowercase)
+    counter = list((0,) * len(alpha))
+    pangram = True
+    s = ''.join(s.split()).lower()
+
+    for index, character in enumerate(s):
+
+        if character in alpha:
+            counter[alpha.index(character)] += 1
+
+    for num in counter:
+
+        if num == 0:
+            pangram = False
+
+    if pangram:
+        return 'pangram'
+    else:
+        return 'not pangram'
+
+# MARS EXPLORATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+def marsExploration(s):
+    items = len(s)
+    sos = 'S', 'O', 'S',
+    correct_list = list(sos * round(items / 3))
+    count = 0
+
+    for index, letter in enumerate(s):
+
+        if letter != correct_list[index]:
+            count += 1
+
+    return count
