@@ -182,3 +182,68 @@ def strings_xor(s, t):
             res += '1'
 
     return res
+
+
+# sWapCase
+
+def swap_case(s):
+    return s.swapcase()
+
+
+# Migratory Birds
+
+def migratoryBirds(arr):
+    arr.sort()
+    sightings = [0] * 6
+    max_times_seen = 0
+    most_seen_bird = 0
+    for bird in arr:
+        sightings[bird] += 1
+    for j in range(1, 6):
+        if sightings[j] > max_times_seen:
+            max_times_seen = sightings[j]
+            most_seen_bird = j
+    return most_seen_bird
+
+
+# Zigzag Sequence
+
+def findZigZagSequence(a, n):
+    a.sort()
+    # str_a = ''
+    mid = int((n-1)/2)
+    a[mid], a[n-1] = a[n-1], a[mid]
+
+    st = mid + 1
+    ed = n - 2
+    while st <= ed:
+        a[st], a[ed] = a[ed], a[st]
+        st = st + 1
+        ed = ed - 1
+
+    for i in range(n):
+        if i == n-1:
+            # str_a += str(a[i])
+            print(a[i])
+        else:
+            print(a[i], end=' ')
+        # str_a += str(a[i])
+            
+    return
+
+
+# Drawing book
+
+def pageCount(n, p):
+    
+    if p - 1 < n - p:
+        return p//2 
+    else:
+        if n % 2 == 0 and n - p == 1:
+            return 1
+        else:
+            return (n - p) // 2
+
+
+
+
